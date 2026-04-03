@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Revels Drains & Repairs – Jacksonville, FL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:        #0a3d6b;
+      --blue-mid:    #1259a0;
+      --blue-light:  #1e7fd4;
+      --accent:      #f5a623;
+      --dark:        #0d1117;
+      --gray:        #5a6475;
+      --gray-light:  #f2f4f7;
+      --white:       #ffffff;
+      --radius:      10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(10,61,107,0.97);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 68px;
+      box-shadow: 0 2px 24px rgba(0,0,0,.3);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo .pipe-icon {
+      width: 38px; height: 38px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .nav-logo-text { line-height: 1.15; }
+    .nav-logo-text .top {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #fff;
+      letter-spacing: .5px;
+    }
+    .nav-logo-text .sub {
+      font-size: .72rem;
+      color: rgba(255,255,255,.55);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,.8);
+      font-weight: 500;
+      font-size: .88rem;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all .2s;
+      letter-spacing: .3px;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.1); }
+    .nav-links a.active { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: var(--dark) !important;
+      font-weight: 700 !important;
+      padding: 10px 22px !important;
+    }
+    .nav-cta:hover { background: #e09010 !important; }
+
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-weight: 600;
+      font-size: .9rem;
+      text-decoration: none;
+    }
+    .nav-phone .ph-icon {
+      width: 30px; height: 30px;
+      border: 1.5px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0a1f3d 0%, #0e3060 50%, #091528 100%);
+    }
+
+    .hero-logo-display {
+      position: absolute;
+      right: 6%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      margin-top: 34px;
+    }
+
+    .hero-logo-display img {
+      width: 380px;
+      max-width: 38vw;
+      filter: drop-shadow(0 8px 40px rgba(30,127,212,.6));
+      animation: floatLogo 4s ease-in-out infinite;
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        100deg,
+        rgba(10,30,60,.98) 0%,
+        rgba(10,30,60,.7) 55%,
+        rgba(10,30,60,.1) 100%
+      );
+    }
+
+    /* diagonal accent strip */
+    .hero-overlay::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 120px;
+      background: var(--white);
+      clip-path: polygon(0 100%, 100% 100%, 100% 60%, 0 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 80px;
+      max-width: 760px;
+      margin-top: 68px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--dark);
+      padding: 6px 18px;
+      border-radius: 4px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--dark);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.8); }
+    }
+
+    .hero-content h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 .accent { color: var(--accent); }
+    .hero-content h1 .thin { font-weight: 400; }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.82);
+      max-width: 500px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 15px 32px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all .2s;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    .btn-accent { background: var(--accent); color: var(--dark); }
+    .btn-accent:hover { background: #e09010; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,.4); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,.5);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 60px;
+      right: 80px;
+      display: flex;
+      gap: 3px;
+      z-index: 2;
+    }
+
+    .hstat {
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 20px 30px;
+      text-align: center;
+      color: #fff;
+    }
+    .hstat:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .hstat:last-child  { border-radius: 0 var(--radius) var(--radius) 0; }
+    .hstat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; line-height: 1; color: var(--accent); }
+    .hstat .lbl { font-size: .72rem; opacity: .8; margin-top: 4px; letter-spacing: .5px; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--blue);
+      padding: 18px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,.85);
+      font-size: .88rem;
+      font-weight: 500;
+    }
+
+    .trust-item .ti-icon {
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ── SHARED SECTION ── */
+    .section { padding: 90px 80px; }
+    .section-sm { padding: 70px 80px; }
+
+    .section-eyebrow {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--gray-light); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 50px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .svc-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 34px 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      border-left: 4px solid transparent;
+      transition: all .25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 60px; height: 60px;
+      background: var(--gray-light);
+      border-radius: 0 0 0 60px;
+      transition: all .3s;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(10,61,107,.12);
+      border-left-color: var(--blue-light);
+    }
+    .svc-card:hover::before { background: rgba(30,127,212,.08); width: 80px; height: 80px; }
+
+    .svc-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .svc-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+    }
+
+    .svc-card p {
+      font-size: .88rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      height: 440px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 16px;
+      display: block;
+      background: #f0f4f8;
+    }
+
+    .about-rating-badge {
+      position: absolute;
+      bottom: 28px; right: -28px;
+      background: var(--blue);
+      color: #fff;
+      padding: 20px 26px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(10,61,107,.3);
+    }
+
+    .about-rating-badge .stars { color: var(--accent); font-size: 1.1rem; letter-spacing: 3px; }
+    .about-rating-badge .big  { font-family: 'Barlow Condensed', sans-serif; font-size: 2.4rem; font-weight: 900; line-height: 1; }
+    .about-rating-badge .sm   { font-size: .75rem; opacity: .75; margin-top: 4px; }
+
+    .about-points { list-style: none; margin-top: 28px; display: grid; gap: 18px; }
+
+    .about-points li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .chk {
+      width: 28px; height: 28px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: .75rem;
+      color: #fff;
+    }
+
+    .about-points li p { font-size: .93rem; color: var(--gray); }
+    .about-points li strong { display: block; font-size: .98rem; margin-bottom: 3px; }
+
+    .owner-quote {
+      margin-top: 32px;
+      background: var(--gray-light);
+      border-left: 4px solid var(--blue-light);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: .9rem;
+      color: var(--gray);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--dark); }
+    #gallery .section-title { color: #fff; }
+    #gallery .section-eyebrow { color: var(--accent); }
+    #gallery .section-sub { color: rgba(255,255,255,.55); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 50px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,61,107,.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity .3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-overlay span {
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    /* placeholder cards for future photos */
+    .gallery-placeholder {
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      border: 2px dashed rgba(255,255,255,.15);
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(255,255,255,.35);
+      font-size: .85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .gallery-placeholder:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.3);
+      color: rgba(255,255,255,.6);
+    }
+
+    .gallery-placeholder .ph-big { font-size: 2rem; }
+
+    /* ── REVIEWS ── */
+    #reviews { background: var(--gray-light); }
+
+    .rating-summary {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      margin: 20px 0 54px;
+    }
+
+    .rating-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    .rating-info .stars-row { color: var(--accent); font-size: 1.2rem; letter-spacing: 3px; }
+    .rating-info .review-ct { font-size: .9rem; color: var(--gray); margin-top: 4px; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      position: relative;
+    }
+
+    .review-card .ql {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 4rem;
+      color: rgba(10,61,107,.08);
+      line-height: .5;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .review-card .stars { color: var(--accent); font-size: .9rem; letter-spacing: 2px; margin-bottom: 10px; }
+
+    .review-card p {
+      font-size: .9rem;
+      color: var(--gray);
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .r-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: .9rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      flex-shrink: 0;
+    }
+
+    .reviewer .r-name { font-weight: 600; font-size: .9rem; }
+    .reviewer .r-date { font-size: .75rem; color: #aaa; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+      padding: 90px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '🔧';
+      position: absolute;
+      font-size: 18rem;
+      opacity: .04;
+      right: -60px;
+      top: -40px;
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,.75);
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-white { background: #fff; color: var(--blue); }
+    .btn-white:hover { background: #eef2f8; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+
+    .btn-ghost-white {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,.45);
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.65);
+      padding: 56px 80px 40px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer-brand .logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .footer-brand .logo-text span { color: var(--accent); }
+
+    .footer-brand p {
+      margin-top: 14px;
+      font-size: .85rem;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-brand .open-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      background: rgba(245,166,35,.15);
+      border: 1px solid rgba(245,166,35,.3);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul { list-style: none; display: grid; gap: 10px; }
+    .footer-col li { font-size: .85rem; }
+    .footer-col a { color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+    .footer-col a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .78rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero-content { padding: 0 32px; }
+      .hero-stats { right: 32px; }
+      .section, .section-sm { padding: 60px 32px; }
+      .trust-bar { padding: 18px 32px; gap: 24px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-rating-badge { right: 20px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .cta-section { padding: 70px 32px; }
+      footer { padding: 48px 32px 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="pipe-icon">🔧</div>
+    <div class="nav-logo-text">
+      <div class="top">Revels Drains & Repairs</div>
+      <div class="sub">Jacksonville, FL</div>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:9043070740" class="nav-cta">📞 (904) 307-0740</a></li>
+  </ul>
+
+  <a href="tel:9043070740" class="nav-phone">
+    <div class="ph-icon">📞</div>
+    (904) 307-0740
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-logo-display">
+    <img src="hero1.jpg" alt="Revels Drains and Repairs Logo"/>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Open 24 Hours · Jacksonville & Nearby Areas
+    </div>
+    <h1>
+      <span class="thin">Expert</span><br/>
+      Plumbing &<br/>
+      <span class="accent">Drain</span> Repair
+    </h1>
+    <p>Owner-operated. You get Jacob on the job and on the phone every time. Quality work for a fair price — no problem too big or too small.</p>
+    <div class="hero-buttons">
+      <a href="tel:9043070740" class="btn btn-accent">
+        📞 Call Now – 24/7
+      </a>
+      <a href="#services" class="btn btn-outline-white">View All Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="num">4.9★</div>
+      <div class="lbl">Google Rating</div>
+    </div>
+    <div class="hstat">
+      <div class="num">88</div>
+      <div class="lbl">Reviews</div>
+    </div>
+    <div class="hstat">
+      <div class="num">24/7</div>
+      <div class="lbl">Available</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="ti-icon">✅</div> Licensed & Insured</div>
+  <div class="trust-item"><div class="ti-icon">👤</div> Owner on Every Job</div>
+  <div class="trust-item"><div class="ti-icon">⚡</div> Same-Day Service</div>
+  <div class="trust-item"><div class="ti-icon">💲</div> Fair, Transparent Pricing</div>
+  <div class="trust-item"><div class="ti-icon">🌙</div> 24/7 Emergency Calls</div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="center">
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Full-Service Plumbing Solutions</h2>
+      <p class="section-sub">From drain cleaning to full kitchen remodels — we handle it all with the same attention to detail every time.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <span class="svc-icon">🚿</span>
+        <h3>Drain Cleaning</h3>
+        <p>Fast, thorough drain clearing for sinks, tubs, toilets, and main lines. We get it flowing again.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">💧</span>
+        <h3>Leak Detection</h3>
+        <p>Precision leak detection to find hidden water damage before it becomes a costly disaster.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🔩</span>
+        <h3>Pipe Repairs & Re-pipes</h3>
+        <p>Full re-pipe services and targeted pipe repairs done right the first time.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🏠</span>
+        <h3>Bath & Kitchen Remodels</h3>
+        <p>Complete plumbing for bathroom and kitchen renovations — from rough-in to final install.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🌊</span>
+        <h3>Hydro Jetting</h3>
+        <p>High-pressure jetting clears stubborn grease, scale, and root buildup from your lines.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🔥</span>
+        <h3>Water Heaters</h3>
+        <p>Traditional and tankless water heater installation, repair, and replacement.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">📷</span>
+        <h3>Camera Inspection</h3>
+        <p>See exactly what's going on inside your pipes with professional video inspection.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">💧</span>
+        <h3>Water Softeners</h3>
+        <p>Installation and service of water softening systems to protect your pipes and appliances.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🔧</span>
+        <h3>General Service & Repair</h3>
+        <p>Faucet replacements, shower heads, fixture installs, and all everyday plumbing repairs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img src="about1.jpg" alt="Jacob Revels – Owner of Revels Drains and Repairs" class="about-img-main"/>
+      <div class="about-rating-badge">
+        <div class="stars">★★★★★</div>
+        <div class="big">4.9</div>
+        <div class="sm">88 Google Reviews</div>
+      </div>
+    </div>
+    <div>
+      <p class="section-eyebrow">About Revels</p>
+      <h2 class="section-title">The Owner Shows Up.<br/>Every Time.</h2>
+      <p class="section-sub">Jacob and his team serve Jacksonville and nearby areas with honest plumbing you can count on. Staying small means you always get the owner on your job — not a subcontractor.</p>
+      <ul class="about-points">
+        <li>
+          <div class="chk">✓</div>
+          <div>
+            <strong>Owner-Operated Promise</strong>
+            <p>You get Jacob on the phone and on the job — no middlemen, no runaround.</p>
+          </div>
+        </li>
+        <li>
+          <div class="chk">✓</div>
+          <div>
+            <strong>Best Options, Always</strong>
+            <p>Jacob gives you all the options and lets you decide — no pressure, no upsells.</p>
+          </div>
+        </li>
+        <li>
+          <div class="chk">✓</div>
+          <div>
+            <strong>Fast Response, 24/7</strong>
+            <p>Plumbing emergencies don't wait for business hours. Neither do we.</p>
+          </div>
+        </li>
+        <li>
+          <div class="chk">✓</div>
+          <div>
+            <strong>Built on Relationships</strong>
+            <p>Staying small keeps us accountable and our customers coming back for years.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="owner-quote">
+        "Providing quality work for a fair price. No problem too big or too small. Owner operator — you get the owner/plumber on the job, and on the phone each time."
+        <br/><br/><strong style="font-style:normal;color:var(--blue);font-size:.85rem;">— Jacob Revels, Owner</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <div class="center">
+    <p class="section-eyebrow">Our Work</p>
+    <h2 class="section-title">Photo Gallery</h2>
+    <p class="section-sub">See the quality craftsmanship we bring to every job — from drain cleaning to full remodels.</p>
+  </div>
+  <div class="gallery-grid">
+
+    <!-- Photo 1 -->
+    <div class="gallery-item">
+      <img src="gallery1.jpg" alt="Bathtub installation by Revels Drains and Repairs"/>
+      <div class="gallery-overlay"><span>Bathtub Installation</span></div>
+    </div>
+
+    <!-- Photo 2 -->
+    <div class="gallery-item">
+      <img src="gallery2.jpg" alt="Rough-in pipe work by Revels Drains and Repairs"/>
+      <div class="gallery-overlay"><span>Rough-In Plumbing</span></div>
+    </div>
+
+    <!-- Photo 3 -->
+    <div class="gallery-item">
+      <img src="gallery3.jpg" alt="Pipe installation by Revels Drains and Repairs"/>
+      <div class="gallery-overlay"><span>Pipe Installation</span></div>
+    </div>
+
+    <!-- Placeholder slots for future photos -->
+    <div class="gallery-placeholder">
+      <span class="ph-big">📷</span>
+      <span>More Photos Coming Soon</span>
+    </div>
+    <div class="gallery-placeholder">
+      <span class="ph-big">📷</span>
+      <span>More Photos Coming Soon</span>
+    </div>
+    <div class="gallery-placeholder">
+      <span class="ph-big">📷</span>
+      <span>More Photos Coming Soon</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="section">
+  <div class="center">
+    <p class="section-eyebrow">Customer Reviews</p>
+    <h2 class="section-title">What Jacksonville Says</h2>
+    <div class="rating-summary">
+      <div class="rating-num">4.9</div>
+      <div class="rating-info">
+        <div class="stars-row">★★★★★</div>
+        <div class="review-ct">88 verified reviews on Google</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="ql">"</div>
+      <p>Jacob and Rebecca make a great team. Showed up on time, was very thorough in clearing my drains in 2 places. He gave me choices to go forward for my drains and I really appreciated that.</p>
+      <div class="reviewer">
+        <div class="r-avatar">JM</div>
+        <div>
+          <div class="r-name">Jennifer M.</div>
+          <div class="r-date">Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="ql">"</div>
+      <p>Jacob did a great job! He replaced our faucet handle, shower head and did some other repairs. Very professional and knew exactly what he was doing. We highly recommend him!</p>
+      <div class="reviewer">
+        <div class="r-avatar">TK</div>
+        <div>
+          <div class="r-name">Tom K.</div>
+          <div class="r-date">Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="ql">"</div>
+      <p>Great company to have doing your plumbing repairs and/or leak detection. The owner is as friendly as he is professional and knows his stuff when it comes to plumbing.</p>
+      <div class="reviewer">
+        <div class="r-avatar">DR</div>
+        <div>
+          <div class="r-name">David R.</div>
+          <div class="r-date">Google Review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section id="contact" class="cta-section">
+  <h2>Need a Plumber Right Now?</h2>
+  <p>Call Jacob directly — 24 hours a day, 7 days a week. Fast response, fair price, owner on every job.</p>
+  <div class="cta-buttons">
+    <a href="tel:9043070740" class="btn btn-accent">
+      📞 (904) 307-0740
+    </a>
+    <a href="https://maps.google.com/?q=Jacksonville,FL" target="_blank" class="btn btn-ghost-white">
+      📍 Service Area
+    </a>
+  </div>
+  <p style="margin-top:32px;font-size:.82rem;color:rgba(255,255,255,.5);">
+    Serving Jacksonville & Nearby Areas · Open 24 Hours
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-text">Revels <span>Drains</span> & Repairs</div>
+      <p>Owner-operated plumbing serving Jacksonville and the surrounding area. Quality work, fair prices, and the owner on every job.</p>
+      <div class="open-badge">
+        <span style="animation:pulse 2s infinite;display:inline-block;width:7px;height:7px;background:var(--accent);border-radius:50%;"></span>
+        Open 24 Hours
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li>Drain Cleaning</li>
+        <li>Leak Detection</li>
+        <li>Pipe Repairs & Re-pipes</li>
+        <li>Bath & Kitchen Remodels</li>
+        <li>Hydro Jetting</li>
+        <li>Water Heaters</li>
+        <li>Camera Inspection</li>
+        <li>Water Softeners</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:9043070740">(904) 307-0740</a></li>
+        <li>Jacksonville, FL</li>
+        <li>& Nearby Areas</li>
+        <li style="margin-top:8px;">Open 24 Hours</li>
+        <li style="margin-top:8px;"><a href="https://g.co/kgs/revels" target="_blank">★ 4.9 on Google (88 reviews)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2024 Revels Drains & Repairs · Jacksonville, FL · All rights reserved.</span>
+    <span>(904) 307-0740 · Open 24/7</span>
+  </div>
+</footer>
+
+</body>
+</html>
